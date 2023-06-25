@@ -1,26 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "rgba(0, 0, 0, 0.15)",
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  container: {},
+  container: { backgroundColor: "#17232c", height: "100%" },
   teamDetailsContainer: {
     paddingVertical: 32,
     paddingHorizontal: 12,
     alignItems: "center",
-    backgroundColor: "#17232c",
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderWidth: 1,
-    borderColor: "#263540",
     borderBottomWidth: 0,
-    shadowOffset: { width: 0, height: -2 },
-    shadowColor: "rgba(0, 0, 0, 0.3)",
-    shadowOpacity: 1,
-    shadowRadius: 25,
   },
   teamHeader: {
     flexDirection: "row",
@@ -44,9 +30,11 @@ export const styles = StyleSheet.create({
     height: 54,
   },
   teamName: {
+    flex: 1,
+    flexWrap: "wrap",
     color: "#30c3a2",
     fontWeight: 500,
-    fontSize: 28,
+    fontSize: 24,
   },
   teamFoundation: {
     color: "#818e95",

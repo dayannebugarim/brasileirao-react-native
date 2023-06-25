@@ -2,31 +2,20 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(0, 0, 0, 0.15)",
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  playerDetailsContainer: {
+    backgroundColor: "#17232c",
+    height: "100%",
     paddingVertical: 32,
     paddingHorizontal: 12,
-    // alignItems: "center",
-    backgroundColor: "#17232c",
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderWidth: 1,
-    borderColor: "#263540",
     borderBottomWidth: 0,
-    // shadowOffset: { width: 0, height: -2 },
-    // shadowColor: "rgba(0, 0, 0, 0.3)",
-    // shadowOpacity: 1,
-    // shadowRadius: 25,
     gap: 50,
   },
   headerContainer: {
     flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
     gap: 8,
   },
+  closeButton: { padding: 6, borderWidth: 0, backgroundColor: "transparent" },
   playerImg: {
     borderRadius: 50,
     backgroundColor: "#fff",
@@ -34,18 +23,17 @@ export const styles = StyleSheet.create({
     height: 66,
   },
   infoContainer: {
-    width: "100%",
     flexDirection: "column",
+    maxWidth: 250,
   },
   playerName: {
     color: "#30c3a2",
     fontWeight: "500",
-    fontSize: 28,
+    fontSize: 24,
   },
   descriptionsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    maxWidth: 150,
   },
   descriptionContainer: {
     alignItems: "flex-start",

@@ -1,43 +1,35 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView, StatusBar } from "react-native";
-import Banner from "./src/components/Banner/index";
-import TeamsCard from "./src/components/TeamsCard";
-import FixturesCard from "./src/components/FixturesCard";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./src/screens/Home";
+import TeamScreen from "./src/screens/Team";
+import PlayerScreen from "./src/screens/Player";
 // import FixturesCard from "./components/fixturesCard";
-// import TeamsCard from "./components/teamsCard";
-// import GlobalStyles from "./styles/global";
 
 const App = () => {
-  const [leagueId, setLeagueId] = useState("71");
-  console.log(leagueId);
+  const Stack = createNativeStackNavigator();
 
   return (
-    <ScrollView style={styles.container}>
-      <StatusBar backgroundColor="#17232C" barStyle="light-content" />
-      <Text style={styles.title}>Brasileirão</Text>
-      <Banner leagueId={leagueId} setLeagueId={setLeagueId} />
-      <TeamsCard leagueId={leagueId} />
-      <FixturesCard />
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Team"
+          component={TeamScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Player"
+          component={PlayerScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    gap: 30,
-    paddingHorizontal: 6,
-    fontFamily: "Roboto",
-    color: "#fff",
-    backgroundColor: "#17232C",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 16,
-    color: "#fff",
-  },
-});
 
 export default App;
