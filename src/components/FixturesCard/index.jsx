@@ -53,6 +53,10 @@ export default function FixturesCard() {
             style={styles.datePickerButton}
             onPress={showDatepicker}
           >
+            <Image
+              source={require("../../../assets/icons/white-arrow-down-icon.png")}
+              style={styles.buttonIcon}
+            />
             <Text style={styles.datePickerText}>{formatDate(date)}</Text>
           </TouchableOpacity>
         </View>

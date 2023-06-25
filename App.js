@@ -16,7 +16,7 @@ const App = () => {
       <StatusBar backgroundColor="#17232C" barStyle="light-content" />
       <Text style={styles.title}>Brasileirão</Text>
       <Banner leagueId={leagueId} setLeagueId={setLeagueId} />
-      <TeamsCard />
+      <TeamsCard leagueId={leagueId} />
       <FixturesCard />
     </ScrollView>
   );

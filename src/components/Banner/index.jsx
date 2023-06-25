@@ -15,8 +15,10 @@ export default function Banner({ leagueId, setLeagueId }) {
       <View style={styles.bannerContainer}>
         <View style={styles.bannerHeader}>
           <Picker
+            mode="dropdown"
             selectedValue={leagueId}
             onValueChange={(itemValue) => setLeagueId(itemValue)}
+            style={styles.picker}
           >
             <Picker.Item label="Série A" value="71" />
             <Picker.Item label="Série B" value="72" />

@@ -14,7 +14,15 @@ export const styles = StyleSheet.create({
   },
   headerTitleContainer: { flexDirection: "row", alignItems: "center", gap: 5 },
   headerTitle: { color: "#ffffff" },
-  datePickerButton: {},
+  datePickerButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  buttonIcon: {
+    width: 14,
+    height: 14,
+  },
   datePickerText: { color: "#ffffff" },
   cardsContainer: {
     flexDirection: "column",

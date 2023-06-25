@@ -11,12 +11,16 @@ export const styles = StyleSheet.create({
     gap: 10,
     color: "#17232C",
   },
-  bannerHeader: {},
+  bannerHeader: { alignItems: "center", justifyContent: "center" },
   leagueContainer: {
     display: "flex",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 5,
+  },
+  picker: {
+    width: 200,
   },
   leagueLogo: {
     maxWidth: 16,
