@@ -19,7 +19,6 @@ export default function TeamScreen({ route, navigation }) {
       .then((response) => setPlayersData(response.data.response))
       .catch((error) => console.log(error));
   }, [data.team.id, leagueId]);
-  console.log(data);
 
   return (
     <>

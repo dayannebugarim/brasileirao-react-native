@@ -23,19 +23,13 @@ export default function FixturesContainer() {
           setShouldFetch(false);
         })
         .catch((error) => {
-          console.log("1");
           console.log(error);
-          console.log(error.message);
-          console.log(error.response);
         });
     } else {
       getFixturesByDate(formatDateToFetch(date), leagueId)
         .then((response) => setData(response.data.response))
         .catch((error) => {
-          console.log("2");
           console.log(error);
-          console.log(error.message);
-          console.log(error.response);
         });
     }
   }, [leagueId, date, shouldFetch]);
