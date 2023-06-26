@@ -1,28 +1,7 @@
-import { View, Image, Text, TouchableOpacity } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { View, Image, Text } from "react-native";
 import { styles } from "./styles";
-import { useState } from "react";
 
-export default function FixturesCard() {
-  const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
-
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setShow(false);
-    setDate(currentDate);
-  };
-
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    showMode("date");
-  };
-
+export default function FixturesCard({ data }) {
   const formatDate = (fixtureDate) => {
     const today = new Date();
     if (new Date(fixtureDate) === today) {
@@ -40,127 +19,52 @@ export default function FixturesCard() {
 
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <View style={styles.headerTitleContainer}>
-            <Image
-              source={require("../../../assets/icons/white-calendar-icon.png")}
-              style={styles.headerIcon}
-            />
-            <Text style={styles.headerTitle}>Próximas partidas</Text>
-          </View>
-          <TouchableOpacity
-            style={styles.datePickerButton}
-            onPress={showDatepicker}
-          >
-            <Image
-              source={require("../../../assets/icons/white-arrow-down-icon.png")}
-              style={styles.buttonIcon}
-            />
-            <Text style={styles.datePickerText}>{formatDate(date)}</Text>
-          </TouchableOpacity>
+      <View style={styles.fixtureContainer}>
+        <View style={styles.dateContainer}>
+          <Text style={styles.fixtureDate}>
+            {formatDate(data.fixture.date)} -{" "}
+          </Text>
+          <Text style={styles.fixtureTime}>
+            {formatTime(data.fixture.date)}
+          </Text>
         </View>
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            onChange={onChange}
-          />
-        )}
-      </View>
-      <View style={styles.cardsContainer}>
-        <View style={styles.fixtureContainer}>
-          <View style={styles.dateContainer}>
-            <Text style={styles.fixtureDate}>{formatDate(date)} - </Text>
-            <Text style={styles.fixtureTime}>{formatTime(date)}</Text>
+        <View style={styles.infoContainer}>
+          <View style={styles.leagueContainer}>
+            <Image
+              source={{
+                uri: `${data.league.logo}`,
+              }}
+              style={styles.leagueLogo}
+            />
+            <Text style={styles.leagueName}>{data.league.name}</Text>
           </View>
-          <View style={styles.infoContainer}>
-            <View style={styles.leagueContainer}>
-              <Image
-                source={{
-                  uri: "https://media-1.api-sports.io/football/leagues/75.png",
-                }}
-                style={styles.leagueLogo}
-              />
-              <Text style={styles.leagueName}>Série A</Text>
-            </View>
-            <View style={styles.teamsContainer}>
-              <View style={styles.teamContainer}>
-                <Text numberOfLines={1} style={styles.teamName}>
-                  Flamengo
-                </Text>
-                <View style={styles.teamLogoContainer}>
-                  <Image
-                    source={{
-                      uri: "https://media-1.api-sports.io/football/teams/120.png",
-                    }}
-                    style={styles.teamLogo}
-                  />
-                </View>
-              </View>
-              <Text style={styles.vsText}>VS</Text>
-              <View style={styles.teamContainer}>
-                <View style={styles.teamLogoContainer}>
-                  <Image
-                    source={{
-                      uri: "https://media-1.api-sports.io/football/teams/120.png",
-                    }}
-                    style={styles.teamLogo}
-                  />
-                </View>
-                <Text numberOfLines={1} style={styles.teamName}>
-                  Vasco Da Gama
-                </Text>
+          <View style={styles.teamsContainer}>
+            <View style={styles.teamContainer}>
+              <Text numberOfLines={1} style={styles.teamName}>
+                {data.teams.away.name}
+              </Text>
+              <View style={styles.teamLogoContainer}>
+                <Image
+                  source={{
+                    uri: `${data.teams.away.logo}`,
+                  }}
+                  style={styles.teamLogo}
+                />
               </View>
             </View>
-          </View>
-        </View>
-
-        <View style={styles.fixtureContainer}>
-          <View style={styles.dateContainer}>
-            <Text style={styles.fixtureDate}>{formatDate(date)} - </Text>
-            <Text style={styles.fixtureTime}>{formatTime(date)}</Text>
-          </View>
-          <View style={styles.infoContainer}>
-            <View style={styles.leagueContainer}>
-              <Image
-                source={{
-                  uri: "https://media-1.api-sports.io/football/leagues/75.png",
-                }}
-                style={styles.leagueLogo}
-              />
-              <Text style={styles.leagueName}>Série A</Text>
-            </View>
-            <View style={styles.teamsContainer}>
-              <View style={styles.teamContainer}>
-                <Text numberOfLines={1} style={styles.teamName}>
-                  Internacional
-                </Text>
-                <View style={styles.teamLogoContainer}>
-                  <Image
-                    source={{
-                      uri: "https://media-1.api-sports.io/football/teams/120.png",
-                    }}
-                    style={styles.teamLogo}
-                  />
-                </View>
+            <Text style={styles.vsText}>VS</Text>
+            <View style={styles.teamContainer}>
+              <View style={styles.teamLogoContainer}>
+                <Image
+                  source={{
+                    uri: `${data.teams.home.logo}`,
+                  }}
+                  style={styles.teamLogo}
+                />
               </View>
-              <Text style={styles.vsText}>VS</Text>
-              <View style={styles.teamContainer}>
-                <View style={styles.teamLogoContainer}>
-                  <Image
-                    source={{
-                      uri: "https://media-1.api-sports.io/football/teams/120.png",
-                    }}
-                    style={styles.teamLogo}
-                  />
-                </View>
-                <Text numberOfLines={1} style={styles.teamName}>
-                  Botafogo
-                </Text>
-              </View>
+              <Text numberOfLines={1} style={styles.teamName}>
+                {data.teams.home.name}
+              </Text>
             </View>
           </View>
         </View>

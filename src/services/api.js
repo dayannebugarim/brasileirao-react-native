@@ -1,4 +1,5 @@
 import axios from "axios";
+import Constants from "expo-constants";
 
 export const getLiveFixtures = (leagueId) => {
   return getData("fixtures", {
@@ -61,11 +62,11 @@ export const getTeamStatsByLeague = (leagueId, teamId) => {
 const getData = (endpoint, params) => {
   const options = {
     method: "GET",
-    url: `${import.meta.env.VITE_API_URL}${endpoint}`,
+    url: `${Constants.manifest.extra.apiUrl}${endpoint}`,
     params: params,
     headers: {
-      "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
-      "X-RapidAPI-Host": import.meta.env.VITE_API_HOST,
+      "X-RapidAPI-Key": Constants.manifest.extra.apiKey,
+      "X-RapidAPI-Host": Constants.manifest.extra.apiHost,
     },
   };
 

@@ -99,6 +99,7 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   eventType: {
+    textAlign: "center",
     fontSize: 12,
     paddingVertical: 3,
     paddingHorizontal: 6,

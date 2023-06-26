@@ -30,11 +30,11 @@ export const styles = StyleSheet.create({
     height: 54,
   },
   teamName: {
-    flex: 1,
     flexWrap: "wrap",
     color: "#30c3a2",
     fontWeight: 500,
     fontSize: 24,
+    maxWidth: 250,
   },
   teamFoundation: {
     color: "#818e95",

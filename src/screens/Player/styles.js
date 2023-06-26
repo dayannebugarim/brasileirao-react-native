@@ -24,6 +24,8 @@ export const styles = StyleSheet.create({
   },
   infoContainer: {
     flexDirection: "column",
+    minWidth: 100,
+
     maxWidth: 250,
   },
   playerName: {
@@ -37,6 +39,8 @@ export const styles = StyleSheet.create({
   },
   descriptionContainer: {
     alignItems: "flex-start",
+    minWidth: 80,
+    maxWidth: 250,
     flexDirection: "column",
   },
   descriptionTitle: {

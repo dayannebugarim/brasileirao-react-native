@@ -1,4 +1,4 @@
-import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
 export default function PlayerCard({ data, onPress }) {
@@ -8,11 +8,11 @@ export default function PlayerCard({ data, onPress }) {
         <Image
           style={styles.playerImg}
           source={{
-            uri: "https://media-2.api-sports.io/football/players/10351.png",
+            uri: `${data.player.photo}`,
           }}
         />
         <Text numberOfLines={2} style={styles.playerName}>
-          David Duarte Dos Sa
+          {data.player.name}
         </Text>
       </TouchableOpacity>
     </>
